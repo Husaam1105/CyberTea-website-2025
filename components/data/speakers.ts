@@ -138,4 +138,38 @@ export const speakersData: Speaker[] = [
     category: "speakers",
     linkedinUrl: "https://in.linkedin.com/in/dr-santhi-thilagam-165a086",
   },
+  {
+    name: "Prof. Sharad Sinha",
+    role: "Associate Professor",
+    affiliation: "IIT Goa",
+    image: "/Speakers/ProfSharad.jpeg",
+    category: "speakers",
+    linkedinUrl: "https://www.linkedin.com/in/sharad-sinha-iitgoa/",
+  },
+  {
+    name: "Dr. Rohit Kumar",
+    role: "Assistant Professor",
+    affiliation: "ABV-IIITM Gwalior",
+    image: "/Speakers/Rohit.jpeg",
+    category: "speakers",
+    linkedinUrl: "https://www.linkedin.com/in/dr-rohit-kumar-smieee/",
+  },
+  {
+    name: "Mr. Ujval Bucha",
+    affiliation: "EclecticIQ, Dubai",
+    image: "/Speakers/Ujval.jpeg",
+    category: "speakers",
+    linkedinUrl: "https://www.linkedin.com/in/ujvalbucha/",
+  },
+  {
+    name: "Dr. Chandan Gautam",
+    role: "Research Scientist",
+    affiliation: "A*STAR Singapore",
+    image: "/Speakers/Chandan.jpeg",
+    category: "speakers",
+    linkedinUrl: "https://www.linkedin.com/in/dr-chandan-gautam-29404576/",
+  },
+
+
+
 ];
