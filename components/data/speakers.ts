@@ -39,14 +39,14 @@ export const speakersData: Speaker[] = [
   },
   {
     name: "Mr. Chinmaya Mishra",
-    affiliation: "Walmart",
+    role: "Walmart",
     image: "/Speakers/Chinmaaya.png",
     category: "speakers",
     linkedinUrl: "https://www.linkedin.com/in/chinmaya-mishra-21223023/",
   },
   {
     name: "Dr. Chandra Shekhar",
-    affiliation: "Samsung",
+    role: "Samsung",
     image: "/Speakers/Chndra.png",
     category: "speakers",
     linkedinUrl: "https://www.linkedin.com/in/chandrasuperman",
@@ -77,7 +77,7 @@ export const speakersData: Speaker[] = [
   },
   {
     name: "Mr. Krishna Sastry Pendyala",
-    affiliation: "Ernst & Young",
+    role: "Ernst & Young",
     image: "/Speakers/KrishnaSastry.png",
     category: "speakers",
     linkedinUrl: "https://www.linkedin.com/in/krishna-sastry-pendyala-4573128/",
@@ -156,7 +156,7 @@ export const speakersData: Speaker[] = [
   },
   {
     name: "Mr. Ujval Bucha",
-    affiliation: "EclecticIQ, Dubai",
+    role: "EclecticIQ, Dubai",
     image: "/Speakers/Ujval.jpeg",
     category: "speakers",
     linkedinUrl: "https://www.linkedin.com/in/ujvalbucha/",
@@ -169,7 +169,20 @@ export const speakersData: Speaker[] = [
     category: "speakers",
     linkedinUrl: "https://www.linkedin.com/in/dr-chandan-gautam-29404576/",
   },
-
-
-
+  {
+    name: "Dr. Fulayo Aina",
+    role: "Asst Prof",
+    affiliation: "University of Lancester",
+    image: "/Speakers/Folayo.jpeg",
+    category: "speakers",
+    linkedinUrl: "https://www.linkedin.com/in/folayo-aina-127718149/",
+  },
+  {
+    name: "Mr. Karthikeyan",
+    role: "TCS",
+    affiliation: "",
+    image: "/Speakers/Karthikeyan.png",
+    category: "speakers",
+    linkedinUrl: "#",
+  },
 ];

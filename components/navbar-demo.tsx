@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Download } from "lucide-react";
 
@@ -14,6 +14,19 @@ export default function NavbarDemo() {
 function StickyNavbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("home");
+
+  // ✨ ADDED: State and effect for the fade-on-scroll animation
+  const [opacity, setOpacity] = useState(1);
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const fadeEnd = 120; // Fade out completely after 120px of scrolling
+      const newOpacity = Math.max(0, 1 - scrollY / fadeEnd);
+      setOpacity(newOpacity);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Download function for the brochure
   const handleBrochureDownload = () => {
@@ -114,95 +127,108 @@ function StickyNavbar() {
     },
   };
 
-  // Scroll-aware show/hide for the logo pill
-  // Removed - no longer needed for sticky navbar
-
   return (
     <>
-      <div className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50">
-        {/* Main Sticky Pill Navbar */}
+      {/* ✨ NEW: Parent container for logos and navbar. */}
+      <div className="fixed top-0 left-0 z-50 w-full flex items-center justify-between px-6 pt-6">
+        {/* ✨ MOVED & RE-STYLED: Left Logo (IIIT) - Only logos fade */}
+        <div
+          className="hidden md:flex items-center gap-3"
+          style={{
+            opacity: opacity,
+            pointerEvents: opacity === 0 ? "none" : "auto",
+            transition: "opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+          }}
+        >
+          <img
+            src="/iiit.png"
+            alt="IIIT Sri City"
+            className="h-26 w-26 rounded-xl bg-white/5 object-contain shadow-md border border-white/10"
+          />
+        </div>
+
+        {/* Main Sticky Pill Navbar - Always visible */}
         <motion.nav
           variants={navbarVariants}
           initial="visible"
           animate="visible"
-          className="bg-neutral-950/90 backdrop-blur rounded-2xl px-6 py-2.5 shadow-lg border border-white/10"
+          // ✨ MODIFIED: Simplified classes, as positioning is handled by the parent
+          className="bg-neutral-950/90 backdrop-blur rounded-2xl px-6 py-2.5 shadow-lg border border-white/10 mx-auto"
         >
-          <div className="flex items-center space-x-8">
-            {/* Logo */}
-            <div className="flex-shrink-0">
+          {/* ✨ MODIFIED: Container div is simplified */}
+          <div className="flex items-center justify-center">
+            {/* Center: Navbar content */}
+            <div className="flex items-center space-x-8">
               <button
                 onClick={() => handleSmoothScroll("#home", "home")}
                 className="text-white tracking-wide font-mono font-bold text-xl whitespace-nowrap hover:text-white/90 transition-colors duration-150 cursor-pointer"
               >
                 CyberTEA 3.0
               </button>
-            </div>
-
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              {navigationLinks.map((link) => (
-                <motion.div
-                  key={link.id}
-                  variants={linkVariants}
+              <div className="hidden md:flex items-center space-x-8">
+                {navigationLinks.map((link) => (
+                  <motion.div
+                    key={link.id}
+                    variants={linkVariants}
+                    className="relative"
+                  >
+                    {link.isDownload ? (
+                      <button
+                        onClick={() => {
+                          setActiveLink(link.id);
+                          link.onClick?.();
+                        }}
+                        className="text-white/90 hover:text-white text-sm font-medium tracking-wide transition-colors duration-150 py-2 px-2 relative flex items-center gap-1.5 group"
+                      >
+                        {link.label}
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => handleSmoothScroll(link.href, link.id)}
+                        className="text-white/90 hover:text-white text-sm font-medium tracking-wide transition-colors duration-150 py-2 px-2 relative"
+                      >
+                        {link.label}
+                      </button>
+                    )}
+                  </motion.div>
+                ))}
+                <div
                   className="relative"
+                  onMouseEnter={() => setOpenPastDesktop(true)}
+                  onMouseLeave={() => setOpenPastDesktop(false)}
                 >
-                  {link.isDownload ? (
-                    <button
-                      onClick={() => {
-                        setActiveLink(link.id);
-                        link.onClick?.();
-                      }}
-                      className="text-white/90 hover:text-white text-sm font-medium tracking-wide transition-colors duration-150 py-2 px-2 relative flex items-center gap-1.5 group"
-                    >
-                      {link.label}
+                  <motion.div variants={linkVariants} className="relative">
+                    <button className="text-white/90 hover:text-white text-sm font-medium tracking-wide transition-colors duration-150 py-2 px-2 whitespace-nowrap">
+                      PAST EVENTS
                     </button>
-                  ) : (
-                    <button
-                      onClick={() => handleSmoothScroll(link.href, link.id)}
-                      className="text-white/90 hover:text-white text-sm font-medium tracking-wide transition-colors duration-150 py-2 px-2 relative"
-                    >
-                      {link.label}
-                    </button>
-                  )}
-                </motion.div>
-              ))}
-              {/* Past Events desktop dropdown */}
-              <div
-                className="relative"
-                onMouseEnter={() => setOpenPastDesktop(true)}
-                onMouseLeave={() => setOpenPastDesktop(false)}
-              >
-                <motion.div variants={linkVariants} className="relative">
-                  <button className="text-white/90 hover:text-white text-sm font-medium tracking-wide transition-colors duration-150 py-2 px-2 whitespace-nowrap">
-                    PAST EVENTS
-                  </button>
-                </motion.div>
-                <AnimatePresence>
-                  {openPastDesktop && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -6 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -6 }}
-                      transition={{ duration: 0.15 }}
-                      className="absolute right-0 top-full mt-5 bg-neutral-950/95 border border-white/10 rounded-xl shadow-lg backdrop-blur p-1 min-w-[12rem]"
-                    >
-                      {pastEvents.map((item) => (
-                        <a
-                          key={item.id}
-                          href={item.href}
-                          className="block text-white/80 hover:text-white text-sm px-3 py-2 rounded-md whitespace-nowrap"
-                        >
-                          {item.label}
-                        </a>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                  </motion.div>
+                  <AnimatePresence>
+                    {openPastDesktop && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -6 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -6 }}
+                        transition={{ duration: 0.15 }}
+                        className="absolute right-0 top-full mt-5 bg-neutral-950/95 border border-white/10 rounded-xl shadow-lg backdrop-blur p-1 min-w-[12rem]"
+                      >
+                        {pastEvents.map((item) => (
+                          <a
+                            key={item.id}
+                            href={item.href}
+                            className="block text-white/80 hover:text-white text-sm px-3 py-2 rounded-md whitespace-nowrap"
+                          >
+                            {item.label}
+                          </a>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               </div>
             </div>
 
             {/* Mobile menu button */}
-            <div className="md:hidden">
+            <div className="md:hidden flex items-center ml-4">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="text-white/90 hover:text-white p-2"
@@ -233,9 +259,25 @@ function StickyNavbar() {
             </div>
           </div>
         </motion.nav>
+
+        {/* ✨ MOVED & RE-STYLED: Right Logo (CyberTEA) - Only logos fade */}
+        <div
+          className="hidden md:flex items-center gap-3"
+          style={{
+            opacity: opacity,
+            pointerEvents: opacity === 0 ? "none" : "auto",
+            transition: "opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+          }}
+        >
+          <img
+            src="/CyberTea_logo.png"
+            alt="CyberTEA"
+            className="h-26 w-26 rounded-xl bg-white/5 object-contain shadow-md border border-white/10"
+          />
+        </div>
       </div>
 
-      {/* Mobile Menu - vertical dropdown */}
+      {/* Mobile Menu & Backdrop */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -243,7 +285,8 @@ function StickyNavbar() {
             initial="hidden"
             animate="visible"
             exit="hidden"
-            className="fixed top-28 left-1/2 transform -translate-x-1/2 z-40 md:hidden w-64"
+            // ✨ Positioned lower to not overlap with the new parent container
+            className="fixed top-24 left-1/2 transform -translate-x-1/2 z-40 md:hidden w-64"
           >
             <div className="bg-neutral-950/90 backdrop-blur rounded-2xl py-4 shadow-xl border border-white/10">
               <div className="flex flex-col space-y-2 px-6">
@@ -278,7 +321,6 @@ function StickyNavbar() {
                     )}
                   </motion.div>
                 ))}
-                {/* Mobile Past Events submenu */}
                 <div className="pt-2">
                   <div className="text-white/70 text-xs tracking-wider mb-1 px-3.5">
                     PAST EVENTS
@@ -301,8 +343,6 @@ function StickyNavbar() {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Mobile backdrop */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
