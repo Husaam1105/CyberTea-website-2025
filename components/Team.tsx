@@ -59,15 +59,30 @@ const teamMembers: TeamMember[] = [
     linkedinUrl: "https://www.linkedin.com/in/mohammed-kamran-ahmed/",
     githubUrl: "https://github.com/Mohammed-Kamran-Ahmed",
   },
-  
+  {
+    name: "Shyam Modi",
+    role: "CTF Lead",
+    department: "Computer Applications",
+    image: "/CTFTeam/shyam.jpg",
+    linkedinUrl: "https://www.linkedin.com/in/shyam-modi-1729zyu/",
+    githubUrl: "https://github.com/shyxmz",
+  },
   // {
-  //   name: "Prof. Registration Head",
-  //   role: "Registration Head",
-  //   department: "Computer Science",
-  //   image: "/placeholder-user.jpg",
-  //   linkedinUrl: "#",
-  //   githubUrl: "#",
+  //   name: "Vedant Maske",
+  //   role: "CTF Team",
+  //   department: "Computer Applications",
+  //   image: "/WebTeam/Kamran.jpg",
+  //   linkedinUrl: "https://www.linkedin.com/in/vedant-maske-656300296/",
+  //   githubUrl: "https://github.com/Vedant00Maske",
   // },
+  {
+    name: "Yagyansh Gupta",
+    role: "CTF Team",
+    department: "Computer Applications",
+    image: "/CTFTeam/yagyansh.jpg",
+    linkedinUrl: "https://www.linkedin.com/in/yagyansh-gupta/",
+    githubUrl: "https://github.com/Yagyansh02",
+  },
 ];
 
 const TeamCard: React.FC<{ member: TeamMember }> = ({ member }) => {
