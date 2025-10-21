@@ -55,6 +55,7 @@ function StickyNavbar() {
 
   const navigationLinks = [
     { id: "schedule", label: "SCHEDULE", href: "#schedule" },
+    { id: "ctf", label: "CTF", href: "#ctf" },
     { id: "speakers", label: "SPEAKERS", href: "#speakers" },
     {
       id: "brochure",

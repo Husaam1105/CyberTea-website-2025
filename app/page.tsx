@@ -8,6 +8,7 @@ import SpeakerGallery from "@/components/SpeakerGallery";
 import EventSchedule from "@/components/EventSchedule";
 import { speakersData } from "../components/data/speakers";
 import Team from "@/components/Team";
+import CtfSection from "@/components/CtfSection";
 
 export default function SyntheticV0PageForDeployment() {
   return (
@@ -18,6 +19,9 @@ export default function SyntheticV0PageForDeployment() {
       </div>
       <div id="schedule">
         <EventSchedule />
+      </div>
+      <div id="ctf">
+        <CtfSection />
       </div>
       <div id="speakers">
         <SpeakerGallery speakers={speakersData} />
