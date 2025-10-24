@@ -61,7 +61,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Shyam Modi",
-    role: "CTF Lead",
+    role: "CTF Team",
     department: "Computer Applications",
     image: "/CTFTeam/shyam.jpg",
     linkedinUrl: "https://www.linkedin.com/in/shyam-modi-1729zyu/",
