@@ -10,26 +10,57 @@ interface ScheduleItem {
   title: string;
   description: string;
   speaker?: string;
+  type?: string; // e.g. "Keynote", "Workshop", "Panel Discussion"
 }
 
 interface ScheduleDay {
-  date: string; // e.g., "December 10, 2025"
-  dayLabel: string; // e.g., "Day 1"
+  date: string;
+  dayLabel: string;
   events: ScheduleItem[];
 }
 
-// Actual schedule data - To be announced soon!
 const defaultScheduleData: ScheduleDay[] = [
   {
     date: "December 10, 2025",
     dayLabel: "Day 1",
     events: [
       {
-        time: "TBA",
-        title: "To be announced soon!",
+        time: "9:30 AM - 10:00 AM",
+        title: "Inauguration and Welcome Address",
+        description: "Opening of the conference and welcome remarks.",
+        speaker: "Organizing Committee",
+        type: "Ceremony",
+      },
+      {
+        time: "10:00 AM - 11:30 AM",
+        title: "Keynote Talk – Mr. Krishna Sastry Pendyala",
+        description: "",
+        speaker: "Mr. Krishna Sastry Pendyala, Partner at Ernst & Young",
+        type: "Keynote",
+      },
+      {
+        time: "11:30 AM - 1:00 PM",
+        title: "Keynote Talk – Prof. Rajat Subhra Chakraborty",
         description:
-          "Detailed schedule with exciting sessions, workshops, and keynotes will be announced soon. Stay tuned for updates!",
-        speaker: "Various Expert Speakers",
+          "Topic: Can I Trust My Eyes? Introduction to Image Morphing and Digital Image Forensics",
+        speaker: "Prof. Rajat Subhra Chakraborty, IIT Kharagpur",
+        type: "Keynote",
+      },
+      {
+        time: "2:00 PM - 3:30 PM",
+        title: "Keynote Talk – Prof. Santhi Thilagam",
+        description: "Topic: IoT Security",
+        speaker: "Prof. Santhi Thilagam, NIT Surathkal",
+        type: "Keynote",
+      },
+      {
+        time: "3:30 PM - 5:00 PM",
+        title: "Keynote Talk – Prof. Muttukrishnan Rajarajan",
+        description:
+          "Topic: Translating Digital Security Research & Innovation to Commercialization",
+        speaker:
+          "Prof. Muttukrishnan Rajarajan, Institute for Cyber Security, UK",
+        type: "Keynote",
       },
     ],
   },
@@ -38,11 +69,33 @@ const defaultScheduleData: ScheduleDay[] = [
     dayLabel: "Day 2",
     events: [
       {
-        time: "TBA",
-        title: "To be announced soon!",
+        time: "10:00 AM - 11:30 AM",
+        title: "Keynote Talk – Prof. Bodhisatwa Mazumdar",
+        description: "",
+        speaker: "Prof. Bodhisatwa Mazumdar, IIT Indore",
+        type: "Keynote",
+      },
+      {
+        time: "11:30 AM - 1:00 PM",
+        title: "Keynote Talk – Prof. Sharad Sinha",
+        description: "",
+        speaker: "Prof. Sharad Sinha, IIT Goa",
+        type: "Keynote",
+      },
+      {
+        time: "2:00 PM - 3:30 PM",
+        title: "Hands-on Session – Mr. Karthikeyan R.",
+        description: "Topic: Post Quantum Cryptography",
+        speaker: "Mr. Karthikeyan R., TCS",
+        type: "Hands-on Session",
+      },
+      {
+        time: "3:30 PM - 5:00 PM",
+        title: "Keynote Talk – Dr. Folayo Aina",
         description:
-          "Detailed schedule with exciting sessions, workshops, and keynotes will be announced soon. Stay tuned for updates!",
-        speaker: "Various Expert Speakers",
+          "Topic: Bridging the Cybersecurity R&D Gap: Turning Academic Innovation into Industry-Ready Security Solutions",
+        speaker: "Dr. Folayo Aina, University of Lancashire, UK",
+        type: "Keynote",
       },
     ],
   },
@@ -51,11 +104,32 @@ const defaultScheduleData: ScheduleDay[] = [
     dayLabel: "Day 3",
     events: [
       {
-        time: "TBA",
-        title: "To be announced soon!",
-        description:
-          "Detailed schedule with exciting sessions, workshops, and keynotes will be announced soon. Stay tuned for updates!",
-        speaker: "Various Expert Speakers",
+        time: "10:00 AM - 11:30 AM",
+        title: "Talk – Dr. Monosij Maitra",
+        description: "Topic: Lattice-based Encryption",
+        speaker: "Dr. Monosij Maitra, IIT Kharagpur",
+        type: "Talk",
+      },
+      {
+        time: "11:30 AM - 1:00 PM",
+        title: "Hands-on Session – Dr. Gaurav Varshney",
+        description: "Topic: Web Phishing & Email Security and Gen AI Trends",
+        speaker: "Dr. Gaurav Varshney, IIT Jammu",
+        type: "Hands-on Session",
+      },
+      {
+        time: "2:00 PM - 3:30 PM",
+        title: "Hands-on Session – Mr. Chinmaya Mishra",
+        description: "Topic: AI for Cyber",
+        speaker: "Mr. Chinmaya Mishra, Walmart",
+        type: "Hands-on Session",
+      },
+      {
+        time: "3:30 PM - 5:00 PM",
+        title: "Keynote Talk – Prof. Chester Rebeiro",
+        description: "",
+        speaker: "Prof. Chester Rebeiro, IIT Madras",
+        type: "Keynote",
       },
     ],
   },
@@ -64,11 +138,40 @@ const defaultScheduleData: ScheduleDay[] = [
     dayLabel: "Day 4",
     events: [
       {
-        time: "TBA",
-        title: "To be announced soon!",
+        time: "10:00 AM - 11:00 AM",
+        title: "Keynote Talk – Prof. Durga Toshniwal",
+        description: "Topic: Data Protection and Privacy",
+        speaker: "Prof. Durga Toshniwal, IIT Roorkee",
+        type: "Keynote",
+      },
+      {
+        time: "11:00 AM - 12:00 PM",
+        title: "Keynote Talk – Prof. Shashikala Tapaswi",
+        description: "Topic: Malware Analysis",
+        speaker: "Prof. Shashikala Tapaswi, ABV-IIITM Gwalior",
+        type: "Keynote",
+      },
+      {
+        time: "12:00 PM - 1:00 PM",
+        title: "Keynote Talk – Prof. Somanath Tripathy",
+        description: "",
+        speaker: "Prof. Somanath Tripathy, NIT Patna",
+        type: "Keynote",
+      },
+      {
+        time: "2:00 PM - 3:30 PM",
+        title: "Talk – Dr. Aditya Japa",
         description:
-          "Detailed schedule with exciting sessions, workshops, and keynotes will be announced soon. Stay tuned for updates!",
-        speaker: "Various Expert Speakers",
+          "Topic: Power Side Channel Attacks on Cryptography Engines",
+        speaker: "Dr. Aditya Japa, Ulster University, UK",
+        type: "Talk",
+      },
+      {
+        time: "3:30 PM - 4:30 PM",
+        title: "Talk – Dr. Chandra Shekhar V.",
+        description: "Topic: Adversarial Machine Learning",
+        speaker: "Dr. Chandra Shekhar V., Samsung",
+        type: "Talk",
       },
     ],
   },
@@ -77,14 +180,56 @@ const defaultScheduleData: ScheduleDay[] = [
     dayLabel: "Day 5",
     events: [
       {
-        time: "TBA",
-        title: "To be announced soon!",
-        description:
-          "Detailed schedule with exciting sessions, workshops, and keynotes will be announced soon. Stay tuned for updates!",
-        speaker: "Various Expert Speakers",
+        time: "10:00 AM - 11:30 AM",
+        title: "Talk – Dr. Chandan Gautam",
+        description: "Talk presentation.",
+        speaker: "Dr. Chandan Gautam, Singapore",
+        type: "Talk",
+      },
+      {
+        time: "11:30 AM - 1:00 PM",
+        title: "Talk – Dr. Nikhil Tripathi",
+        description: "Topic: AI for Encrypted Traffic Analysis",
+        speaker: "Dr. Nikhil Tripathi, IIT (ISM) Dhanbad",
+        type: "Talk",
+      },
+      {
+        time: "2:00 PM - 3:30 PM",
+        title: "Talk – Mr. Ujval Bucha",
+        description: "Topic: Agentic AI in Cyber Defense",
+        speaker: "Mr. Ujval Bucha, EclecticIQ, Dubai",
+        type: "Talk",
+      },
+      {
+        time: "3:00 PM - 4:00 PM",
+        title: "Keynote Talk – Prof. John Augustine",
+        description: "",
+        speaker: "Prof. John Augustine, IIT Madras",
+        type: "Keynote",
+      },
+      {
+        time: "4:00 PM - 5:00 PM",
+        title: "Talk – Dr. Rohit Kumar",
+        description: "",
+        speaker: "Dr. Rohit Kumar, ABV-IIITM Gwalior",
+        type: "Talk",
+      },
+      {
+        time: "5:00 PM onwards",
+        title: "Closing Ceremony",
+        description: "Closing remarks and awards.",
+        speaker: "Organizing Committee",
+        type: "Ceremony",
       },
     ],
   },
+];
+
+// Define a set of metallic grey/white gradients for the chips
+const chipGradients = [
+  "linear-gradient(135deg, rgba(220, 220, 225, 0.25) 0%, rgba(180, 180, 190, 0.2) 100%)", // Metallic grey/white
+  "linear-gradient(135deg, rgba(210, 210, 220, 0.25) 0%, rgba(170, 170, 185, 0.2) 100%)", // Lighter metallic grey
+  "linear-gradient(135deg, rgba(225, 225, 230, 0.25) 0%, rgba(185, 185, 200, 0.2) 100%)", // Whitish metallic grey
 ];
 
 interface EventScheduleProps {
@@ -104,21 +249,23 @@ export default function EventSchedule({
       <div className="relative z-10 mx-auto max-w-4xl px-6">
         <div className="text-center mb-12">
           <h2
-            className="text-4xl font-bold mb-4 tracking-tight"
+            className="text-4xl font-bold mb-4 tracking-tight relative inline-block w-full"
             style={{
-              background: "linear-gradient(135deg, #ffffff 0%, #cccccc 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              textShadow: "0 0 12px rgba(255,255,255,0.4)",
+              color: "#e0e0e0",
+              textShadow: "0 2px 4px rgba(0,0,0,0.5)",
+              letterSpacing: "0.05em",
             }}
           >
             Workshop Schedule
           </h2>
+          {/* Removed the spotlight effect */}
           <p
-            className="text-lg max-w-2xl mx-auto"
+            className="text-lg max-w-2xl mx-auto mt-6"
             style={{
-              color: "rgba(255,255,255,0.7)",
-              textShadow: "0 0 8px rgba(0,0,0,0.3)",
+              color: "rgba(255,255,255,0.8)",
+              textShadow: "0 0 12px rgba(0,0,0,0.5)",
+              fontWeight: 300,
+              letterSpacing: "0.01em",
             }}
           >
             Explore our comprehensive lineup of sessions, workshops, and
@@ -132,138 +279,137 @@ export default function EventSchedule({
           defaultValue={scheduleData[0]?.dayLabel}
           collapsible
         >
-          {scheduleData.map((day, index) => (
-            <Accordion.Item
-              key={day.dayLabel}
-              value={day.dayLabel}
-              className="rounded-2xl overflow-hidden shadow-[0_4px_30px_rgba(0,0,0,0.3)] group focus-within:ring-2 focus-within:ring-white/20 transition-all duration-300"
-              style={{
-                background: "rgba(0,0,0,0.3)",
-                border: "1px solid rgba(255,255,255,0.1)",
-                backdropFilter: "blur(8px)",
-              }}
-            >
-              <Accordion.Header className="flex">
-                <Accordion.Trigger className="flex flex-1 items-center justify-between px-6 py-5 text-left font-semibold text-lg hover:bg-white/5 transition-all duration-200">
-                  <span className="flex items-baseline gap-3">
-                    <span
-                      className="text-sm font-medium px-3 py-1 rounded-full"
-                      style={{
-                        background: "rgba(0,0,0,0.5)",
-                        color: "rgba(255,255,255,0.8)",
-                        border: "1px solid rgba(255,255,255,0.1)",
-                      }}
-                    >
-                      {day.dayLabel}
-                    </span>
-                    <span
-                      className="text-white font-medium"
-                      style={{
-                        textShadow: "0 0 8px rgba(0,0,0,0.3)",
-                      }}
-                    >
-                      {day.date}
-                    </span>
-                  </span>
-                  <ChevronDownIcon
-                    className="h-5 w-5 text-white/60 group-data-[state=open]:rotate-180 transition-transform duration-300 ease-in-out"
-                    aria-hidden
-                  />
-                </Accordion.Trigger>
-              </Accordion.Header>
-              <Accordion.Content className="overflow-hidden data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown">
-                <div
-                  className="px-6 py-6 border-t"
+          {scheduleData.map((day, dayIndex) => {
+            // Cycle through the predefined gradients
+            const currentChipGradient =
+              chipGradients[dayIndex % chipGradients.length];
+
+            return (
+              <div key={day.dayLabel}>
+                <Accordion.Item
+                  value={day.dayLabel}
+                  className="rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.5)] group focus-within:ring-2 focus-within:ring-white/30 transition-all duration-300 relative"
                   style={{
-                    background: "rgba(0,0,0,0.4)",
-                    borderColor: "rgba(255,255,255,0.05)",
+                    background:
+                      "linear-gradient(135deg, rgba(30,30,30,0.8) 0%, rgba(40,40,40,0.9) 100%)",
+                    border: "1px solid rgba(255,255,255,0.15)",
                   }}
                 >
-                  <div className="space-y-6">
-                    {day.events.map((event, eventIndex) => (
-                      <div
-                        key={eventIndex}
-                        className="pb-6 last:pb-0 border-b border-white/10 last:border-b-0"
-                      >
-                        <div className="flex items-center gap-2 text-white/70 text-sm mb-2">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            className="w-4 h-4"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 6a.75.75 0 0 0-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 0 0 0-1.5h-3.75V6Z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                          {event.time}
-                        </div>
-                        <h3
-                          className="text-xl font-semibold mb-2"
+                  <Accordion.Header>
+                    <Accordion.Trigger className="flex w-full items-center justify-between px-6 py-5 text-left font-semibold text-lg hover:bg-white/10 transition-all duration-200 group-data-[state=open]:bg-white/5">
+                      <span className="flex items-baseline gap-3">
+                        <span
+                          className="text-sm font-bold px-3 py-1.5 rounded-full"
                           style={{
-                            color: "rgba(255,255,255,0.95)",
-                            textShadow: "0 0 8px rgba(0,0,0,0.3)",
+                            background: currentChipGradient, // Apply the cycled gradient
+                            color: "rgba(255,255,255,0.85)",
+                            border: "1.5px solid rgba(255,255,255,0.3)",
+                            boxShadow:
+                              "0 0 12px rgba(255,255,255,0.2), inset 0 1px 0 rgba(255,255,255,0.15), 0 2px 8px rgba(0,0,0,0.3)",
                           }}
                         >
-                          {event.title}
-                        </h3>
-                        {event.speaker && (
-                          <p
-                            className="text-sm mb-3 font-medium"
-                            style={{
-                              color: "rgba(255,255,255,0.6)",
-                            }}
-                          >
-                            Speaker: {event.speaker}
-                          </p>
-                        )}
-                        <p
-                          className="text-base leading-relaxed"
+                          {day.dayLabel}
+                        </span>
+                        <span
+                          className="text-white font-semibold"
                           style={{
-                            color: "rgba(255,255,255,0.7)",
+                            textShadow: "0 0 12px rgba(0,0,0,0.4)",
+                            letterSpacing: "0.02em",
                           }}
                         >
-                          {event.description}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </Accordion.Content>
-            </Accordion.Item>
-          ))}
-        </Accordion.Root>
+                          {day.date}
+                        </span>
+                      </span>
+                      <ChevronDownIcon
+                        className="h-5 w-5 text-white/70 group-data-[state=open]:rotate-180 transition-transform duration-300 ease-in-out"
+                        aria-hidden
+                      />
+                    </Accordion.Trigger>
+                  </Accordion.Header>
 
-        {/* View Full Schedule Button */}
-        <div className="flex justify-center mt-12">
-          <button
-            className="flex items-center gap-2 rounded-full px-8 py-3 text-sm font-medium backdrop-blur-sm transition-all duration-200 hover:scale-105 active:scale-95"
-            style={{
-              background: "rgba(0,0,0,0.5)",
-              color: "rgba(255,255,255,0.8)",
-              border: "1px solid rgba(255,255,255,0.2)",
-              backdropFilter: "blur(8px)",
-            }}
-          >
-            Download Full Schedule
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="w-4 h-4"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
-              />
-            </svg>
-          </button>
-        </div>
+                  <Accordion.Content className="overflow-hidden data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown">
+                    <div
+                      className="px-6 py-6 border-t"
+                      style={{
+                        background: "rgba(10,10,10,0.6)",
+                        borderColor: "rgba(255,255,255,0.08)",
+                      }}
+                    >
+                      <div className="space-y-8">
+                        {day.events.map((event, eventIndex) => (
+                          <div
+                            key={eventIndex}
+                            className="pb-6 last:pb-0 border-b border-white/10 last:border-b-0"
+                          >
+                            <div className="flex items-center gap-2 text-white/60 text-sm mb-3 font-medium">
+                              <span
+                                style={{
+                                  background:
+                                    "linear-gradient(135deg, #f0f0f0 0%, #a0a0a0 100%)",
+                                  WebkitBackgroundClip: "text",
+                                  WebkitTextFillColor: "transparent",
+                                }}
+                              >
+                                🕒
+                              </span>
+                              {event.time}
+                            </div>
+
+                            <div className="flex flex-wrap items-center gap-3 mb-3">
+                              <h3
+                                className="text-xl font-semibold"
+                                style={{
+                                  color: "rgba(255,255,255,0.95)",
+                                  textShadow: "0 2px 8px rgba(0,0,0,0.4)",
+                                  letterSpacing: "0.01em",
+                                }}
+                              >
+                                {event.title}
+                              </h3>
+                              {event.type && (
+                                <span
+                                  className="px-3 py-1 text-xs font-bold rounded-full"
+                                  style={{
+                                    background: currentChipGradient, // Apply the same gradient as the day label
+                                    color: "rgba(255,255,255,0.8)",
+                                    border: "1.5px solid rgba(255,255,255,0.2)",
+                                    boxShadow:
+                                      "0 0 10px rgba(255,255,255,0.15), inset 0 1px 0 rgba(255,255,255,0.1), 0 2px 6px rgba(0,0,0,0.2)",
+                                  }}
+                                >
+                                  {event.type}
+                                </span>
+                              )}
+                            </div>
+
+                            {event.speaker && (
+                              <p
+                                className="text-sm mb-3 font-medium"
+                                style={{
+                                  color: "rgba(200,200,200,0.7)",
+                                }}
+                              >
+                                👤 {event.speaker}
+                              </p>
+                            )}
+                            <p
+                              className="text-base leading-relaxed"
+                              style={{
+                                color: "rgba(255,255,255,0.75)",
+                              }}
+                            >
+                              {event.description}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </Accordion.Content>
+                </Accordion.Item>
+              </div>
+            );
+          })}
+        </Accordion.Root>
       </div>
     </section>
   );

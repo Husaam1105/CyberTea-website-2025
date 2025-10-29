@@ -13,6 +13,7 @@ import {
   Clock,
   Target,
 } from "lucide-react";
+import { CardSpotlight } from "@/components/ui/card-spotlight";
 
 const CtfSection = () => {
   const round1Data = {
@@ -58,13 +59,13 @@ const CtfSection = () => {
     },
     {
       icon: "TerminalSquare",
-      title: "Binary Exploitation",
+      title: "Steganography",
       level: "Advanced",
       description: "Identify and exploit vulnerabilities in program binaries.",
     },
     {
       icon: "FileSearch",
-      title: "Forensics",
+      title: "Network Forensics",
       level: "All Levels",
       description: "Analyze digital evidence to solve security puzzles.",
     },
@@ -164,13 +165,10 @@ const CtfSection = () => {
         {/* Rounds Section */}
         <div className="space-y-6 mb-16">
           {/* Round 1 */}
-          <div
-            className="rounded-2xl overflow-hidden shadow-[0_4px_30px_rgba(0,0,0,0.3)] group focus-within:ring-2 focus-within:ring-white/20 transition-all duration-300 p-8"
-            style={{
-              background: "rgba(0,0,0,0.3)",
-              border: "1px solid rgba(255,255,255,0.1)",
-              backdropFilter: "blur(8px)",
-            }}
+          <CardSpotlight
+            radius={400}
+            color="#d0d0d5"
+            className="shadow-[0_4px_30px_rgba(0,0,0,0.3)] group focus-within:ring-2 focus-within:ring-white/20 transition-all duration-300"
           >
             <div className="flex items-baseline gap-3 mb-4">
               <span
@@ -223,16 +221,13 @@ const CtfSection = () => {
                 value={round1Data.objective}
               />
             </div>
-          </div>
+          </CardSpotlight>
 
           {/* Round 2 */}
-          <div
-            className="rounded-2xl overflow-hidden shadow-[0_4px_30px_rgba(0,0,0,0.3)] group focus-within:ring-2 focus-within:ring-white/20 transition-all duration-300 p-8"
-            style={{
-              background: "rgba(0,0,0,0.3)",
-              border: "1px solid rgba(255,255,255,0.1)",
-              backdropFilter: "blur(8px)",
-            }}
+          <CardSpotlight
+            radius={400}
+            color="#c8c8d0"
+            className="shadow-[0_4px_30px_rgba(0,0,0,0.3)] group focus-within:ring-2 focus-within:ring-white/20 transition-all duration-300"
           >
             <div className="flex items-baseline gap-3 mb-4">
               <span
@@ -285,11 +280,11 @@ const CtfSection = () => {
                 value={round2Data.objective}
               />
             </div>
-          </div>
+          </CardSpotlight>
         </div>
 
         {/* Challenge Categories Section */}
-        {/* <div className="mb-16">
+        <div className="mb-16">
           <h2
             className="text-3xl font-bold mb-8 text-center tracking-tight"
             style={{
@@ -308,14 +303,11 @@ const CtfSection = () => {
                 iconMap[category.icon as keyof typeof iconMap];
 
               return (
-                <div
+                <CardSpotlight
                   key={index}
-                  className="rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.3)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] hover:-translate-y-1 p-6"
-                  style={{
-                    background: "rgba(0,0,0,0.3)",
-                    border: "1px solid rgba(255,255,255,0.1)",
-                    backdropFilter: "blur(8px)",
-                  }}
+                  radius={200}
+                  color="#d5d5dc"
+                  className="shadow-[0_4px_20px_rgba(0,0,0,0.3)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] hover:-translate-y-1"
                 >
                   <div className="flex items-center gap-3 mb-4">
                     <div
@@ -362,11 +354,11 @@ const CtfSection = () => {
                   >
                     {category.description}
                   </p>
-                </div>
+                </CardSpotlight>
               );
             })}
           </div>
-        </div> */}
+        </div>
       </div>
     </section>
   );
