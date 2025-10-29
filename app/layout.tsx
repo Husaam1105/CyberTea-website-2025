@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "CyberTEA 3.0",
   description: "Created with CyberTEA 3.0",
   generator: "v0.app",
+  icons: {
+    icon: "/CyberTea_logo.png",
+  },
 };
 
 export default function RootLayout({
