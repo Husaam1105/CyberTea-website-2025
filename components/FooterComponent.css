@@ -1,0 +1,118 @@
+.footer {
+  width: 100%;
+  background-color: #000000;
+  color: #ccc;
+  text-align: center;
+  padding: 30px 20px; /* Reduced from 60px to 30px */
+  font-family: "Roboto", sans-serif;
+  box-shadow: 0 -6px 25px rgba(0, 0, 0, 0.4);
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  box-sizing: border-box;
+  transition: background 0.3s ease;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* Reduced from 25px to 15px */
+}
+
+/* Links */
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Reduced from 25px to 20px */
+}
+
+.footer-links a {
+  color: #ccc;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem; /* Reduced from 1.2rem to 1.1rem */
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background: #fff;
+  transition: width 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #fff;
+  font-weight: 600;
+  transform: translateY(-2px);
+  text-shadow: 0 0 10px #fff, 0 0 14px #fff;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+/* Social Icons */
+.footer-social {
+  display: flex;
+  gap: 20px; /* Reduced from 25px to 20px */
+  font-size: 1.4rem; /* Reduced from 1.6rem to 1.4rem */
+}
+
+.footer-social a {
+  color: #ccc;
+  transition: all 0.4s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-social a:hover {
+  color: #fff;
+  transform: scale(1.25) rotate(-5deg); /* Reduced scale from 1.35 to 1.25 */
+  text-shadow: 0 0 12px #fff, 0 0 18px #fff;
+}
+
+/* Footer Text */
+.footer-text {
+  font-size: 1rem; /* Reduced from 1.1rem to 1rem */
+  color: #aaa;
+  margin-top: 5px; /* Reduced from 10px to 5px */
+  transition: all 0.3s ease;
+}
+
+.footer-text:hover {
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 0 0 8px #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-links {
+    gap: 12px; /* Reduced from 15px to 12px */
+  }
+
+  .footer-social {
+    gap: 12px; /* Reduced from 15px to 12px */
+    font-size: 1.2rem; /* Reduced from 1.4rem to 1.2rem */
+  }
+
+  .footer {
+    padding: 25px 15px; /* Reduced from 50px to 25px */
+  }
+
+  .footer-links a {
+    font-size: 1rem; /* Reduced from 1.05rem to 1rem */
+  }
+
+  .footer-text {
+    font-size: 0.9rem; /* Reduced from 1rem to 0.9rem */
+  }
+}
